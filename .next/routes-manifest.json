@@ -12,7 +12,22 @@
       "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
     }
   ],
-  "headers": [],
+  "headers": [
+    {
+      "source": "/CV_Misbahudin.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"CV_Misbahudin.pdf\""
+        }
+      ],
+      "regex": "^/CV_Misbahudin\\.pdf(?:/)?$"
+    }
+  ],
   "dynamicRoutes": [],
   "staticRoutes": [
     {

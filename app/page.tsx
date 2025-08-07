@@ -47,6 +47,20 @@ export default function Portfolio() {
     setMobileMenuOpen(false);
   };
 
+  const handleDownloadCV = () => {
+    // Untuk Android/Mobile browser yang tidak support download attribute
+    const link = document.createElement('a');
+    link.href = '/CV_Misbahudin.pdf';
+    link.download = 'CV_Misbahudin.pdf';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+
+    // Trigger click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-colors duration-300'>
       {/* Navigation */}
@@ -145,14 +159,13 @@ export default function Portfolio() {
             Full-Stack Developer passionate about crafting seamless and powerful digital solutions
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center mb-12'>
-            <a href='/CV_Misbahudin.pdf' download='CV_Misbahudin.pdf'>
-              <Button
-                size='lg'
-                className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300'>
-                <Mail className='mr-2 h-4 w-4' />
-                Download CV
-              </Button>
-            </a>
+            <Button
+              size='lg'
+              onClick={handleDownloadCV}
+              className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300'>
+              <Mail className='mr-2 h-4 w-4' />
+              Download CV
+            </Button>
             <Button
               size='lg'
               variant='outline'

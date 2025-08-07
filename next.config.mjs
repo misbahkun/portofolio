@@ -9,6 +9,23 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  async headers() {
+    return [
+      {
+        source: '/CV_Misbahudin.pdf',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/pdf',
+          },
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="CV_Misbahudin.pdf"',
+          },
+        ],
+      },
+    ];
+  },
+};
 
 export default nextConfig
