@@ -39,8 +39,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         {/* Preload critical resources */}
-        <link rel="preload" href="/my.png" as="image" />
-        <link rel="preload" href="/CV_Misbahudin.pdf" as="document" />
+        <link rel="preload" href="/my.png" as="image" type="image/png"/>
+        <link rel="preload" href="/CV_Misbahudin.pdf" as="fetch" />
         
         {/* DNS prefetch untuk external domains */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -49,7 +49,7 @@ export default function RootLayout({
         
         {/* Additional meta tags */}
         <meta name="theme-color" content="#3b82f6" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Misbahudin" />
         <meta name="format-detection" content="telephone=no" />
