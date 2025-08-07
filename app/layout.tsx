@@ -40,7 +40,6 @@ export default function RootLayout({
       <head>
         {/* Preload critical resources */}
         <link rel="preload" href="/my.png" as="image" type="image/png"/>
-        <link rel="preload" href="/CV_Misbahudin.pdf" as="fetch" />
         
         {/* DNS prefetch untuk external domains */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
