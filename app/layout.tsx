@@ -11,10 +11,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Misbahudin - Portfolio",
-    template: "%s | Misbahudin"
-  },
+  title: "Misbahudin - Web Portofolio",
   description: "Full-Stack Developer passionate about crafting seamless and powerful digital solutions",
   keywords: ["Full-Stack Developer", "React", "Next.js", "TypeScript", "Laravel", "Portfolio", "Web Development"],
   authors: [{ name: "Misbahudin", url: "https://github.com/mizzcode" }],
