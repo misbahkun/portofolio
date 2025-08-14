@@ -2,6 +2,10 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTPS_PROXY
 RUN npm i
 
 FROM node:22-alpine AS builder

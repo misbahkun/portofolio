@@ -2,13 +2,15 @@ name: Build & Push Docker Image (Docker Hub)
 
 on:
   push:
-    branches: [build-and-push]
+    branches: ['main', 'build-and-push']
+    tags:
+      - 'v1.1.0'
 
 permissions:
   contents: read
 
 env:
-  IMAGE_NAME: misbahkun/portofolio
+  IMAGE_NAME: mizzcode/portofolio
 
 jobs:
   docker:
@@ -17,11 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Optional: kalau pakai Next.js standalone, pastikan next.config.js sudah: output: 'standalone'
-      # - name: Show Dockerfile
-      #   run: sed -n '1,120p' Dockerfile || true
-
-      - name: Set up QEMU (for multi-arch)
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
@@ -39,11 +37,15 @@ jobs:
         with:
           images: ${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=1.0.0
-            type=sha
-            type=ref,event=branch
+            # Mengambil versi dari Git Tag, misal: v1.2.3 -> 1.2.3
+            type=semver,pattern={{version}}
+            # Menambah tag 'latest' jika build terjadi di branch main
+            type=raw,value=latest,enable={{is_default_branch}}
+            # Tetap membuat tag berdasarkan commit SHA untuk referensi
+            type=sha,prefix=
 
       - name: Build and push
+        id: build-and-push
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -53,3 +55,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache
           cache-to: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache,mode=max
+
+      - name: Print Image Digest
+        run: echo ${{ steps.build-and-push.outputs.digest }}
