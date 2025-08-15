@@ -34,7 +34,7 @@ export default function Portfolio() {
         'A full-stack laravel booking system for my-futsal with payment gateway midtrans and admin dashboard.',
       image: '/my-futsal.png',
       technologies: ['Laravel', 'Tailwind CSS', 'MySQL', 'Midtrans Payment Gateway'],
-      github: 'https://github.com/mizzcode/My-Futsal',
+      github: 'https://github.com/misbahkun/My-Futsal',
       live: 'https://hjmuriyah.my.id/',
     },
   ];
@@ -207,7 +207,7 @@ export default function Portfolio() {
                     LinkedIn
                   </Button>
                 </a>
-                <a href='https://github.com/mizzcode' target='_blank' rel='noopener noreferrer'>
+                <a href='https://github.com/misbahkun' target='_blank' rel='noopener noreferrer'>
                   <Button
                     variant='outline'
                     size='sm'
@@ -339,7 +339,7 @@ export default function Portfolio() {
                   LinkedIn
                 </Button>
               </a>
-              <a href='https://github.com/mizzcode' target='_blank' rel='noopener noreferrer'>
+              <a href='https://github.com/misbahkun' target='_blank' rel='noopener noreferrer'>
                 <Button
                   size='lg'
                   variant='outline'

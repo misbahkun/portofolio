@@ -1,20 +1,16 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-inter'
-})
+import type React from 'react';
+import type { Metadata } from 'next';
+import './globals.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: "Misbahudin - Web Portofolio",
   description: "Full-Stack Developer passionate about crafting seamless and powerful digital solutions",
   keywords: ["Full-Stack Developer", "React", "Next.js", "TypeScript", "Laravel", "Portfolio", "Web Development"],
-  authors: [{ name: "Misbahudin", url: "https://github.com/mizzcode" }],
+  authors: [{ name: "Misbahudin", url: "https://github.com/misbahkun" }],
   creator: "Misbahudin",
   publisher: "Misbahudin",
   robots: {
@@ -36,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preload critical resources */}
         <link rel="preload" href="/my.png" as="image" type="image/png"/>
@@ -65,7 +61,7 @@ export default function RootLayout({
               "description": "Full-Stack Developer passionate about crafting seamless and powerful digital solutions",
               "url": "https://mizzcode.my.id",
               "sameAs": [
-                "https://github.com/mizzcode",
+                "https://github.com/misbahkun",
                 "https://linkedin.com/in/misbahudin99"
               ],
               "knowsAbout": [
@@ -76,7 +72,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`antialiased`}>
         <ThemeProvider 
           attribute="class" 
           defaultTheme="system" 
